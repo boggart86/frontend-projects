@@ -702,15 +702,14 @@ section.testimonials {
     margin-bottom: 60px;
   }
 
-  .swiper {
+  .testimonials-slider {
     display: flex;
     justify-content: space-around;
     gap: 81px;
     align-items: center;
 
-    &>.middle {
-
-      &>.testimonial {
+    .testimonial {
+      .wrap {
         padding: 64px 105px;
         margin-bottom: 60px;
         display: flex;
@@ -734,7 +733,11 @@ section.testimonials {
             gap: 20px;
             align-items: center;
 
-            &>div {
+            >img {
+              border-radius: 50%;
+            }
+
+            >div {
               display: flex;
               flex-direction: column;
 
