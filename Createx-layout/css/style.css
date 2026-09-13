@@ -712,7 +712,7 @@ section.testimonials {
     .testimonial {
       .wrap {
         padding: 64px 105px;
-        display: inline-flex; 
+        display: inline-flex;
         align-items: flex-start;
         gap: 30px;
         border-radius: 4px;
@@ -828,40 +828,58 @@ section.course-program {
         margin-bottom: 60px;
       }
 
-      ol.lessons {
+      .lessons {
         counter-reset: item;
-        list-style: none;
 
-        li {
+        .item {
           counter-increment: item;
           margin-bottom: 24px;
-          display: grid;
-          grid-template-columns: 20px 560px;
-          grid-template-rows: 30px auto;
-          gap: 16px 21px;
 
-          &::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            align-self: center;
-            background: url(../images/icons/plus.svg) no-repeat 0 0 / 100% 100%;
+          &.active .header::after {
+            transform: rotate(0deg);
           }
 
-          .first-line {
-            &::before {
-              content: "Lesson "counter(item) '.';
-              font-weight: 400;
-              line-height: 150%;
-              font-size: 20px;
-              color: var(--primary);
-              margin-right: 8px;
+          button.header {
+            display: inline-flex;
+            position: relative;
+
+            &::before,
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: -40px;
+              height: 0;
+              width: 20px;
+              border: 1.5px solid var(--primary);
+              border-radius: 3px;
+              transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
             }
 
-            >h3 {
-              display: inline-block;
+            &::after {
+              transform: rotate(90deg);
             }
+
+            .first-line {
+              display: inline-flex;
+
+              &::before {
+                content: "Lesson "counter(item) '.';
+                font-weight: 400;
+                line-height: 150%;
+                font-size: 20px;
+                color: var(--primary);
+                margin-right: 8px;
+              }
+            }
+          }
+
+          .content {
+            overflow: hidden;
+            max-height: 0;
+            max-width: 560px;
+            transition: max-height 0.3s ease;
           }
         }
       }
