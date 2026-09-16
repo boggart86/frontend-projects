@@ -892,6 +892,15 @@ section.course-program {
   }
 }
 
+section.our-blog {
+  .top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+}
+
 .trash {
   height: 1000px;
   width: 10px;
