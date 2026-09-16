@@ -905,6 +905,9 @@ section.our-blog {
   }
 
   .posts {
+    display: flex;
+    justify-content: space-between;
+    
     .post {
       position: relative;
       width: 390px;
