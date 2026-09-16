@@ -184,6 +184,30 @@ img {
   }
 }
 
+
+
+a.arrow-ref {
+  display: inline-flex;
+
+  font-weight: 700;
+  line-height: 160%;
+  color: var(--gray-900);
+  transition: .3s;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1lh;
+    height: 1lh;
+    background: url('../images/icons/arrows/blog/Right.svg') 0 0 / 100% 100% no-repeat;
+    margin-left: 8px;
+  }
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
 /* ============ hero ============ */
 
 .hero {
@@ -483,28 +507,6 @@ section.directions {
 
           &>p {
             color: var(--gray-700);
-          }
-
-          &>a {
-            display: flex;
-
-            font-weight: 700;
-            line-height: 160%;
-            color: var(--gray-900);
-            transition: .3s;
-
-            &::after {
-              content: '';
-              display: block;
-              width: 1lh;
-              height: 1lh;
-              background: url('../images/icons/arrows/blog/Right.svg') 0 0 / 100% 100% no-repeat;
-              margin-left: 8px;
-            }
-
-            &:hover {
-              color: var(--primary);
-            }
           }
         }
 
@@ -817,7 +819,7 @@ section.best-jobs {
 }
 
 section.course-program {
-  margin: 293px;
+  margin-top: 293px;
 
   .container {
     display: flex;
@@ -893,11 +895,78 @@ section.course-program {
 }
 
 section.our-blog {
+  margin-top: 186px;
+
   .top {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 60px;
+  }
+
+  .posts {
+    .post {
+      position: relative;
+      width: 390px;
+
+      .type {
+        position: absolute;
+        border-radius: 4px;
+        padding: 1px 8px;
+        background: var(--white);
+        margin: 12px;
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: 8px;
+        }
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: var(--gray-800);
+      }
+
+      img.post-image {
+        margin-bottom: 16px;
+      }
+
+      .metadata {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 150%;
+        color: var(--gray-700);
+
+        *:not(:last-child)::after {
+          content: "|";
+          margin: 0 8px;
+          color: #ccc;
+        }
+
+        .date,
+        .read-time {
+          display: flex;
+          align-items: center;
+
+          img {
+            margin-right: 8px;
+          }
+        }
+      }
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin-bottom: 16px;
+      }
+    }
   }
 }
 
