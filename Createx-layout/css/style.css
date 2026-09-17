@@ -114,6 +114,7 @@ img {
 
 .heading {
   color: var(--gray-900);
+  display: inline-block;
 
   &>h4 {
     font-weight: 700;
@@ -443,9 +444,12 @@ section.directions {
   margin-top: 161px;
 
   &>.container {
+    display: flex;
+    flex-direction: column;
 
     &>.heading {
       text-align: center;
+      align-self: center;
       margin-bottom: 88px;
     }
 
@@ -700,7 +704,13 @@ section.team {
 section.testimonials {
   margin-top: 180px;
 
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .heading {
+    align-self: center;
     text-align: center;
     margin-bottom: 60px;
   }
@@ -795,10 +805,14 @@ section.testimonials {
 
 section.best-jobs {
   margin-top: 195px;
-  display: flex;
-  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
 
   .heading {
+    align-self: center;
     text-align: center;
     margin-bottom: 60px;
   }
@@ -1045,6 +1059,119 @@ section.contact-info {
     }
   }
 }
+
+section.any-questions {
+  margin-top: 180px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .right {
+      width: 705px;
+
+      form {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+
+        label {
+          display: inline-block;
+          font-weight: 400;
+          line-height: 160%;
+        }
+
+        .small {
+          width: 340px;
+          margin: 0;
+        }
+
+        .field {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            color: var(--gray-800);
+            margin-bottom: 8px;
+          }
+
+          input,
+          textarea {
+            border: 1px solid var(--gray-400);
+            border-radius: 4px;
+            background: var(--white);
+            padding: 13px 16px;
+
+            font-weight: 400;
+            line-height: 160%;
+            color: var(--gray-600);
+          }
+
+          textarea {
+            height: 128px;
+            width: 705px;
+            resize: none;
+          }
+        }
+
+        >label {
+          display: flex;
+          color: var(--gray-800);
+          gap: 12px;
+          align-items: flex-start;
+
+          /* создать кастомную */
+          .checkmark {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #9ca3af;
+            border-radius: 3px;
+            background: #fff;
+            position: relative;
+            transition: border-color .2s, background .2s;
+            margin-top: 5px;
+
+            &::after {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: url('data:image/svg+xml;utf8,<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.82771 0.195262C10.0574 0.455612 10.0574 0.877722 9.82771 1.13807L3.94536 7.80474C3.71564 8.06509 3.34319 8.06509 3.11347 7.80474L0.17229 4.4714C-0.05743 4.21105 -0.05743 3.78894 0.17229 3.5286C0.40201 3.26825 0.77446 3.26825 1.00418 3.5286L3.52941 6.39052L8.99582 0.195262C9.22554 -0.0650874 9.59799 -0.0650874 9.82771 0.195262Z" fill="white" /></svg>') center / 10px no-repeat;
+              opacity: 0;
+              transition: opacity .1s;
+            }
+          }
+
+          /* спрятать стрелочку по умолчанию */
+          input {
+            position: absolute;
+            opacity: 0;
+            width: 16px;
+            height: 16px;
+
+            /* настроить поведение при клике */
+            &:checked+.checkmark {
+              border: none;
+              background: var(--primary);
+            }
+
+            &:checked+.checkmark::after {
+              opacity: 1;
+            }
+
+            /* Фокус с клавиатуры (tab) */
+            &:focus-visible+.checkmark {
+              box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 .trash {
   height: 1000px;
