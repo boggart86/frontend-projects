@@ -18,7 +18,7 @@
 
 <body>
 
-  <div class="hero">
+  <div class="hero" id="top">
     <img src="images/decor/Group 4.svg" alt="">
     <div class="container">
 
@@ -756,15 +756,15 @@
             </div>
             <div class="small field">
               <label for="email">Email*</label>
-              <input type="text" id="email" name="email" placeholder="Your working email" required>
+              <input type="email" id="email" name="email" placeholder="Your working email" required>
             </div>
             <div class="small field">
               <label for="phone">Phone</label>
-              <input type="text" id="phone" name="phone" placeholder="Your phone number">
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number">
             </div>
             <div class="field">
               <label for="message">Message*</label>
-              <textarea type="text" id="message" name="message" placeholder="Your message" required></textarea>
+              <textarea id="message" name="message" placeholder="Your message" required></textarea>
             </div>
             <label class="small">
               <input type="checkbox" name="agree" required>
@@ -881,7 +881,6 @@
                   d="M5.66683 1.94857C5.11454 1.94857 4.66683 2.39628 4.66683 2.94857V13.0527C4.66683 13.605 5.11454 14.0527 5.66683 14.0527H10.3335C10.8858 14.0527 11.3335 13.605 11.3335 13.0527V2.94857C11.3335 2.39628 10.8858 1.94857 10.3335 1.94857H10.2779L10.1155 2.3382C10.012 2.58661 9.76928 2.74842 9.50016 2.74842H6.50016C6.23105 2.74842 5.98832 2.58661 5.8848 2.3382L5.72242 1.94857H5.66683ZM3.3335 2.94857C3.3335 1.6599 4.37817 0.615234 5.66683 0.615234H10.3335C11.6222 0.615234 12.6668 1.6599 12.6668 2.94857V13.0527C12.6668 14.3414 11.6222 15.3861 10.3335 15.3861H5.66683C4.37816 15.3861 3.3335 14.3414 3.3335 13.0527V2.94857Z"
                   fill="currentColor" />
               </svg>
-
               (405) 555-0128
             </a>
             <a href="mailto:hello@createx.com">
@@ -890,7 +889,6 @@
                   d="M15.1668 11.9993V4.66602C15.1668 3.56145 14.2714 2.66602 13.1668 2.66602L2.83349 2.66603C1.72893 2.66603 0.833496 3.56146 0.833496 4.66603V11.9993C0.833496 13.1039 1.72893 13.9993 2.8335 13.9993L13.1668 13.9993C14.2714 13.9993 15.1668 13.1039 15.1668 11.9993ZM13.8335 6.17232V11.9993C13.8335 12.3675 13.535 12.666 13.1668 12.666L2.8335 12.666C2.46531 12.666 2.16683 12.3675 2.16683 11.9993L2.16683 6.17223L6.87561 9.3742C7.55433 9.83573 8.44613 9.83573 9.12485 9.3742L13.8335 6.17232ZM13.8259 4.56509C13.7773 4.24479 13.5007 3.99935 13.1668 3.99935L2.83349 3.99936C2.49965 3.99936 2.22311 4.24476 2.17443 4.56501L7.62535 8.27164C7.85159 8.42548 8.14886 8.42548 8.3751 8.27164L13.8259 4.56509Z"
                   fill="currentColor" />
               </svg>
-
               hello@createx.com
             </a>
           </div>
@@ -898,6 +896,12 @@
 
         <div class="sign-up">
           <h4>SIGN UP TO OUR NEWSLETTER</h4>
+          <form action="/subscribe">
+            <input type="email" name="email-sub" placeholder="Email address" required>
+            <button type="submit">
+              <img src="images/icons/arrows/input/small/Right.svg" alt="">
+            </button>
+          </form>
           <p>
             *Subscribe to our newsletter to receive communications and early updates from Createx SEO Agency.
           </p>
@@ -907,6 +911,18 @@
 
     <div class="bottom">
       <div class="container">
+
+        <div class="credits">
+          © All rights reserved. Made with
+          <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M7.58519 11.8027C4.51915 10.0565 2.80911 8.3208 1.9822 6.81486C1.13586 5.27353 1.2097 3.97535 1.67934 3.05398C2.64466 1.16017 5.38972 0.554578 7.06223 2.6699L7.58515 3.33126L8.10811 2.66993C9.78091 0.554524 12.5261 1.16021 13.4914 3.05398C13.9611 3.97534 14.0349 5.27351 13.1885 6.81484C12.3615 8.32079 10.6514 10.0565 7.58519 11.8027ZM7.58521 1.26851C5.23241 -0.967232 1.76148 -0.0432043 0.491425 2.44848C-0.205603 3.81595 -0.215124 5.58337 0.813469 7.45661C1.83294 9.31323 3.86554 11.2729 7.26269 13.1506L7.58518 13.3289L7.90767 13.1506C11.3049 11.273 13.3376 9.31324 14.3572 7.45662C15.3858 5.58339 15.3764 3.81597 14.6793 2.44848C13.4093 -0.0432518 9.93823 -0.967198 7.58521 1.26851Z"
+              fill="#FF3F3A" />
+          </svg>
+          by Createx Studio 
+        </div>
+
+        <a class="to-top" href="#top">GO TO TOP</a>
 
       </div>
     </div>
