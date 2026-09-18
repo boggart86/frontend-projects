@@ -1,0 +1,81 @@
+@media (max-width: 1328px) {
+  .hero .content>img {
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 1260px) {
+  .hero .content>img {
+    max-width: 40%;
+  }
+
+  section.about-us {
+    .content {
+      >img {
+        width: 40%;
+      }
+    }
+    .stats {
+      >img {
+        width: 60%;
+      }
+    }
+  }
+
+  section.directions {
+    .filter-container {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  section.certificate {
+    .container>img {
+      width: 40%;
+    }
+  }
+
+  section.best-jobs {
+    .logos {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  section.our-blog {
+    .top {
+      justify-content: space-around;
+    }
+
+    .posts {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  section.course-program {
+    .container>img {
+      width: 40%;
+    }
+  }
+
+  section.any-questions {
+    .container {
+      justify-content: space-around;
+    }
+
+    .left img {
+      width: 380px;
+    }
+
+    .right {
+      width: 340px !important;
+
+      form {
+        textarea {
+          width: 340px !important;
+        }
+      }
+    }
+  }
+}
