@@ -217,8 +217,8 @@ a.arrow-ref {
   /* min-height: max-content;
   max-height: 100vh; */
   min-height: 100vh;
-  min-width: 100%;
-  width: max-content;
+  /* min-width: 100%;
+  width: max-content; */
   color: var(--gray-900);
   padding-block: 20px 80px;
   position: relative;
@@ -244,7 +244,7 @@ header {
   white-space: nowrap;
   margin-bottom: 128px;
 
-  &>.logo {
+  >.logo {
     margin-right: 60px;
 
     img {
@@ -252,19 +252,17 @@ header {
     }
   }
 
-  &>nav {
+  >nav {
     margin-right: auto;
-    display: flex;
-    gap: 40px;
+
+    >ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
   }
 
-  &>nav>ul {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-  }
-
-  &>div {
+  >div {
     display: flex;
     align-items: center;
     gap: 36px;
@@ -296,11 +294,11 @@ header {
     display: flex;
     justify-content: space-between;
 
-    &>.text {
+    >.text {
       margin-block: 28px 20px;
       max-width: 500px;
 
-      &>.play {
+      >.play {
         display: flex;
         align-items: center;
         font-weight: 700;
@@ -319,7 +317,7 @@ header {
         }
       }
 
-      &>.slogan {
+      >.slogan {
         font-weight: 900;
         font-size: 64px;
         line-height: 130%;
@@ -334,18 +332,18 @@ header {
   }
 
   .stats {
-    &>ul {
+    >ul {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      &>li {
+      >li {
         font-weight: 700;
         line-height: 160%;
         display: flex;
         align-items: center;
 
-        &>span {
+        >span {
           font-weight: 900;
           font-size: 46px;
           line-height: 130%;
@@ -354,7 +352,7 @@ header {
         }
       }
 
-      &>li.sep {
+      .sep {
         display: inline-block;
         background-color: var(--primary);
         width: 8px;
@@ -998,7 +996,6 @@ section.contact-info {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 20px;
 
     .left {
       .heading {
@@ -1269,17 +1266,18 @@ footer {
     }
 
     .sign-up {
-      width: 286px;
+      max-width: 286px;
 
       form {
         display: inline-block;
         position: relative;
         margin-block: 12px;
+        width: 100%;
 
         input {
           border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 4px;
-          width: 286px;
+          width: 100%;
           height: 36px;
           background: rgba(255, 255, 255, 0.12);
           padding-inline: 12px 30px;
