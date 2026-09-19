@@ -74,8 +74,30 @@
   }
 
   section.certificate {
-    .container>img {
-      width: 40%;
+    .container {
+      justify-content: space-around;
+
+      img {
+        width: 40%;
+      }
+    }
+  }
+
+  section.testimonials {
+    .container {
+      align-items: center;
+    }
+
+    .slider {
+      max-width: 80%;
+
+      .testimonial {
+        .wrap {
+          margin: auto;
+          padding: 32px 55px;
+          max-width: 90%;
+        }
+      }
     }
   }
 
@@ -163,3 +185,5 @@
     }
   }
 }
+
+@media (max-width: 940px) {}

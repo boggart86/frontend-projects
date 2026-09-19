@@ -726,7 +726,7 @@ section.testimonials {
     .testimonial {
       .wrap {
         padding: 64px 105px;
-        display: inline-flex;
+        display: flex;
         align-items: flex-start;
         gap: 30px;
         border-radius: 4px;
