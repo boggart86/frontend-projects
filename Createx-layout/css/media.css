@@ -38,7 +38,7 @@
       }
 
       >img {
-        max-width: 40%;
+        width: 40%;
       }
     }
 
@@ -190,6 +190,8 @@
 
 @media (max-width: 940px) {
   header {
+    flex-wrap: wrap;
+
     .menu {
       margin-right: auto;
 
@@ -226,6 +228,7 @@
     .stats {
       ul {
         flex-wrap: wrap;
+
         li {
           span {
             font-size: 20px !important;
@@ -257,11 +260,15 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
+
       .text {
+        max-width: 100%;
+
         .heading {
           text-align: center;
         }
       }
+
       >img {
         width: 60%;
       }
@@ -271,9 +278,12 @@
   section.testimonials {
     .slider {
       gap: 0;
+
       .testimonial {
         .wrap {
           padding: 0;
+          max-width: none !important;
+          gap: 0;
         }
       }
     }
@@ -282,7 +292,7 @@
   section.contact-info {
     .left {
       .icons {
-        gap: 0;
+        gap: 0 !important;
         justify-content: space-between;
       }
     }
@@ -298,14 +308,17 @@
     .container {
       flex-direction: column;
       align-items: center;
+
       >div {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
+
       .heading {
         text-align: center;
       }
+
       >img {
         width: 60%;
       }
@@ -331,9 +344,171 @@
   footer {
     .top {
       .container {
+        justify-content: space-around;
       }
     }
   }
 }
 
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 35px !important;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .button {
+    margin: 0;
+    padding: 0 10px;
+    line-height: 230%;
+    margin-bottom: 10px;
+  }
+
+  section {
+    margin-block: 100px !important;
+  }
+
+  .heading {
+    margin-bottom: 30px !important;
+
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  header {
+    margin-bottom: 30px;
+    justify-content: space-around;
+
+    .menu {
+      margin: 0;
+    }
+
+    .right {
+      display: inline-block;
+    }
+  }
+
+  .hero {
+    .content {
+      flex-direction: column;
+
+      >img {
+        width: 60%;
+      }
+    }
+  }
+
+  section.about-us {
+    .content {
+      flex-direction: column;
+      margin-bottom: 50px;
+
+      >img {
+        width: 60%;
+      }
+    }
+
+    .stats {
+      flex-direction: column-reverse;
+      gap: 20px;
+
+      >img {
+        width: 60%;
+      }
+    }
+  }
+
+  section.directions {
+    .controls {
+      margin-bottom: 20px !important;
+
+      & button {
+        margin-bottom: 10px;
+      }
+    }
+
+    .grid {
+      grid-template-columns: 45% 45% !important;
+      grid-auto-rows: auto !important;
+
+      .direction {
+        .text {
+          padding: 5px !important;
+          gap: 10px !important;
+        }
+      }
+
+      .soon {
+        padding: 5px !important;
+      }
+    }
+  }
+
+  section.team {
+    .people {
+      .human {
+        height: auto !important;
+
+        span {
+          white-space: unset !important;
+        }
+      }
+    }
+  }
+
+  section.best-jobs {
+    .logos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  section.our-blog {
+    .posts {
+      .post {
+        width: 90%;
+      }
+    }
+  }
+
+  section.contact-info {
+    .container {
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .left {
+        max-width: 90%;
+      }
+
+      .right {
+        width: 80%;
+      }
+    }
+  }
+
+  section.any-questions {
+    margin-bottom: 20px !important;
+
+    .container {
+      flex-direction: column-reverse;
+      gap: 40px;
+
+      .left {
+        width: 50% !important;
+      }
+    }
+
+  }
+
+  footer {
+    .bottom {
+      .container {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+/* @media (max-width: 450px) {} */

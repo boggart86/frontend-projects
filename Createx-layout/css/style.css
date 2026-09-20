@@ -117,7 +117,7 @@ img {
   color: var(--gray-900);
   display: inline-block;
 
-  &>h4 {
+  >h4 {
     font-weight: 700;
     line-height: 150%;
     letter-spacing: 0.06em;
@@ -125,7 +125,7 @@ img {
     margin-bottom: 8px;
   }
 
-  &>h2 {
+  >h2 {
     font-weight: 900;
     line-height: 130%;
   }
@@ -432,20 +432,20 @@ section.about-us {
     .text {
       max-width: 600px;
 
-      &>.heading {
+      >.heading {
         margin-bottom: 47px;
       }
 
-      &>.bold {
+      >.bold {
         margin-bottom: 24px;
       }
 
-      &>.normal {
+      >.normal {
         margin-bottom: 60px;
       }
     }
 
-    &>img {
+    >img {
       margin-left: auto;
       margin-top: 40px;
     }
@@ -496,6 +496,7 @@ section.directions {
       display: flex;
       gap: 45px;
       margin-bottom: 56px;
+      flex-wrap: wrap;
 
       & button {
         display: flex;
@@ -874,6 +875,7 @@ section.best-jobs {
 
     img {
       transition: 0.2s;
+      max-width: 100%;
 
       &:hover {
         transform: scale(1.2);
@@ -915,7 +917,7 @@ section.course-program {
               content: '';
               display: block;
               position: absolute;
-              top: 50%;
+              top: 15px;
               height: 0;
               width: 20px;
               border: 1.5px solid var(--primary);
@@ -948,6 +950,7 @@ section.course-program {
             max-height: 0;
             max-width: 560px;
             transition: max-height 0.3s ease;
+            margin-left: 40px;
           }
         }
       }
@@ -998,6 +1001,7 @@ section.our-blog {
 
       img.post-image {
         margin-bottom: 16px;
+        max-width: 100%;
       }
 
       .metadata {
