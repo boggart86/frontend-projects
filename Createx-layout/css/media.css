@@ -17,6 +17,10 @@
 
       nav {
         margin-right: 0;
+
+        ul {
+          gap: 20px;
+        }
       }
 
       &>div {
@@ -42,10 +46,8 @@
       ul {
         justify-content: space-around;
 
-        li {
-          span {
-            font-size: 35px;
-          }
+        li span {
+          font-size: 35px !important;
         }
       }
     }
@@ -186,4 +188,66 @@
   }
 }
 
-@media (max-width: 940px) {}
+@media (max-width: 940px) {
+  header {
+    .menu {
+      margin-right: auto;
+
+      .burger {
+        display: inline-block;
+        margin: 10px;
+      }
+
+      nav {
+        display: flex;
+        position: relative;
+
+        ul {
+          transform: translateY(calc(-100% - 30px));
+          background-color: white;
+          padding: 5px 15px;
+          border-radius: 5px;
+          flex-direction: column;
+          position: absolute;
+          gap: 10px;
+        }
+
+        &.is-open {
+
+          ul {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+
+  .hero {
+    .stats {
+      ul {
+        li span {
+          font-size: 20px !important;
+        }
+      }
+    }
+  }
+
+  section.testimonials {
+    .slider {
+      .testimonial {
+        .wrap {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  section.contact-info {
+    .left {
+      .icons {
+        gap: 0;
+        justify-content: space-between;
+      }
+    }
+  }
+}

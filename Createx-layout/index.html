@@ -24,19 +24,31 @@
     <div class="container">
 
       <header>
+
         <a class="logo" href="/">
           <img src="images/logo.svg" alt="Createx logo">
         </a>
-        <nav>
-          <ul>
-            <li class="link"><a href="#">About Us</a></li>
-            <li class="link"><a href="#">Courses</a></li>
-            <li class="link"><a href="#">Events</a></li>
-            <li class="link"><a href="#">Blog</a></li>
-            <li class="link"><a href="#">Contacts</a></li>
-          </ul>
-        </nav>
-        <div>
+
+        <div class="menu">
+          <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false"
+            aria-controls="primary-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+  
+          <nav id="primary-nav">
+            <ul>
+              <li class="link"><a href="#about-us">About Us</a></li>
+              <li class="link"><a href="#directions">Courses</a></li>
+              <li class="link"><a href="#course-program">Events</a></li>
+              <li class="link"><a href="#our-blog">Blog</a></li>
+              <li class="link"><a href="#contact-info">Contacts</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="right">
           <a class="button" href="#consult">
             Get consultation
           </a>
@@ -46,6 +58,7 @@
             <a href="#reg" class="link">Register</a>
           </div>
         </div>
+
       </header>
 
       <div class="content">
@@ -920,7 +933,7 @@
               d="M7.58519 11.8027C4.51915 10.0565 2.80911 8.3208 1.9822 6.81486C1.13586 5.27353 1.2097 3.97535 1.67934 3.05398C2.64466 1.16017 5.38972 0.554578 7.06223 2.6699L7.58515 3.33126L8.10811 2.66993C9.78091 0.554524 12.5261 1.16021 13.4914 3.05398C13.9611 3.97534 14.0349 5.27351 13.1885 6.81484C12.3615 8.32079 10.6514 10.0565 7.58519 11.8027ZM7.58521 1.26851C5.23241 -0.967232 1.76148 -0.0432043 0.491425 2.44848C-0.205603 3.81595 -0.215124 5.58337 0.813469 7.45661C1.83294 9.31323 3.86554 11.2729 7.26269 13.1506L7.58518 13.3289L7.90767 13.1506C11.3049 11.273 13.3376 9.31324 14.3572 7.45662C15.3858 5.58339 15.3764 3.81597 14.6793 2.44848C13.4093 -0.0432518 9.93823 -0.967198 7.58521 1.26851Z"
               fill="#FF3F3A" />
           </svg>
-          by Createx Studio 
+          by Createx Studio
         </div>
 
         <a class="to-top" href="#top">GO TO TOP</a>
@@ -937,7 +950,5 @@
   <script src="js/mixitup.min.js"></script>
   <script src="js/main.js"></script>
 </body>
-
-<script src="js/main.js"></script>
 
 </html>

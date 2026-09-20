@@ -1,5 +1,42 @@
 $(document).ready(function () {
 
+    // burger-menu
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('#primary-nav');
+
+    function toggleMenu(open) {
+        burger.setAttribute('aria-expanded', String(open));
+        nav.classList.toggle('is-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', () => {
+        const isOpen = burger.getAttribute('aria-expanded') === 'true';
+        console.log(!isOpen)
+        toggleMenu(!isOpen);
+    });
+
+    // Клик по ссылке внутри меню — закрыть
+    nav.addEventListener('click', (e) => {
+        if (e.target.closest('a')) toggleMenu(false);
+    });
+
+    // Esc — закрыть
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleMenu(false);
+    });
+
+    document.addEventListener('click', (e) => {
+        
+        // клик внутри меню или по бургеру — игнорируем
+        if (e.target.closest('#primary-nav') || e.target.closest('.burger')) return;
+
+        toggleMenu(false);
+    });
+
+
+    // other stuff
+
     var mixer = mixitup('.filter-container');
 
     $('.team .slider').slick({
@@ -49,5 +86,4 @@ $(document).ready(function () {
         $item.toggleClass('active', !isOpen);
         $content.css('maxHeight', isOpen ? '' : $content[0].scrollHeight + 'px');
     });
-
 });
