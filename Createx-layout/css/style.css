@@ -290,7 +290,7 @@ header {
 
     nav {
       margin-right: auto;
-      
+
       >ul {
         transition: .3s;
         display: flex;
@@ -396,6 +396,7 @@ header {
         width: 8px;
         height: 8px;
         border-radius: 50%;
+        margin: 5px;
       }
     }
   }
@@ -481,11 +482,11 @@ section.about-us {
 section.directions {
   margin-top: 161px;
 
-  &>.container {
+  >.container {
     display: flex;
     flex-direction: column;
 
-    &>.heading {
+    >.heading {
       text-align: center;
       align-self: center;
       margin-bottom: 88px;
@@ -499,6 +500,7 @@ section.directions {
       & button {
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
         font-weight: 700;
         line-height: 160%;
@@ -527,15 +529,19 @@ section.directions {
       grid-auto-rows: 420px;
       gap: 30px;
 
-      &>.direction {
-        &>.text {
+      .direction {
+        >img {
+          max-width: 100%;
+        }
+
+        >.text {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           gap: 20px;
           padding: 24px;
 
-          &>h4 {
+          >h4 {
             display: inline-flex;
 
             font-weight: 700;
@@ -547,7 +553,7 @@ section.directions {
             background: var(--success);
           }
 
-          &>p {
+          >p {
             color: var(--gray-700);
           }
         }
@@ -610,6 +616,10 @@ section.certificate {
       .logos {
         display: flex;
         justify-content: space-between;
+
+        img {
+          max-width: 30%;
+        }
       }
     }
 
@@ -1118,6 +1128,12 @@ section.any-questions {
     justify-content: space-between;
     align-items: center;
 
+    .left {
+      img {
+        max-width: 100%;
+      }
+    }
+
     .right {
       width: 705px;
 
@@ -1238,6 +1254,8 @@ footer {
     .container {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     h4 {

@@ -91,7 +91,7 @@
     }
 
     .slider {
-      max-width: 80%;
+      max-width: 90%;
 
       .testimonial {
         .wrap {
@@ -131,11 +131,11 @@
       justify-content: space-around;
 
       .left {
-        max-width: 300px;
+        max-width: 45%;
       }
 
       .right {
-        width: 400px;
+        width: 45%;
       }
     }
   }
@@ -225,15 +225,52 @@
   .hero {
     .stats {
       ul {
-        li span {
-          font-size: 20px !important;
+        flex-wrap: wrap;
+        li {
+          span {
+            font-size: 20px !important;
+          }
         }
+      }
+    }
+  }
+
+  section.about-us {
+    .stats {
+      ul {
+        span {
+          font-size: 30px !important;
+        }
+      }
+    }
+  }
+
+  section.directions {
+    .filter-container .controls {
+      gap: 0;
+      justify-content: space-around;
+    }
+  }
+
+  section.certificate {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      .text {
+        .heading {
+          text-align: center;
+        }
+      }
+      >img {
+        width: 60%;
       }
     }
   }
 
   section.testimonials {
     .slider {
+      gap: 0;
       .testimonial {
         .wrap {
           padding: 0;
@@ -247,6 +284,53 @@
       .icons {
         gap: 0;
         justify-content: space-between;
+      }
+    }
+  }
+
+  section.best-jobs {
+    .logos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  section.course-program {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      >div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .heading {
+        text-align: center;
+      }
+      >img {
+        width: 60%;
+      }
+    }
+  }
+
+  section.any-questions {
+    .left {
+      width: 30%;
+    }
+
+    .right {
+      width: 65% !important;
+
+      form {
+        textarea {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+
+  footer {
+    .top {
+      .container {
       }
     }
   }
