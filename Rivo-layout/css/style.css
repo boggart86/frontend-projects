@@ -1,0 +1,18 @@
+/* Шрифты */
+@font-face {
+  font-family: 'Arial Rounded MT Bold';
+  src: url('../fonts/arialroundedmtbold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Elephant';
+  src: url('../fonts/ELEPHNT.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Шрифты */
+
