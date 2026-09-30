@@ -1,0 +1,117 @@
+/* Шрифты */
+@font-face {
+  font-family: 'Arial Rounded MT Bold';
+  src: url('../fonts/arialroundedmtbold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Elephant';
+  src: url('../fonts/ELEPHNT.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Шрифты */
+
+/* Global styles */
+:root {
+  --font-family: "Poppins", sans-serif;
+  --second-family: "Roboto Slab", sans-serif;
+  --third-family: "Roboto Serif", sans-serif;
+  --font3: "Arial Rounded MT Bold", sans-serif;
+  --font4: "Elephant", sans-serif;
+  --font5: "Fanwood Text", sans-serif;
+  --font6: "Rufina", sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  padding-inline: 10px;
+  margin: auto;
+}
+
+.btn {
+  border: 2px solid #224f34;
+  border-radius: 3px;
+  padding: 11px 41px;
+}
+
+a {
+  transition: .2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.icon {
+  max-width: none;
+  max-height: none;
+}
+
+/* burger-menu */
+.burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin-inline: 20px;
+  background: transparent;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px auto;
+    background: var(--gray-900, #333);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+
+  &[aria-expanded="true"] span {
+    &:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+/* burger-menu */
+
+.section-heading {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 50px;
+  color: #224f34;
+  text-align: center;
+}
+
+.heading-subtitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 22px;
+  color: #224f34;
+  text-align: center;
+  margin-top: 40px;
+}
+
+span {
+  display: inline-block;
+}
+
+/* Global styles */
