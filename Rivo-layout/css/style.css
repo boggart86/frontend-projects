@@ -53,6 +53,46 @@ img {
   max-height: 100%;
 }
 
+.icon {
+  max-width: none;
+  max-height: none;
+}
+
+/* burger-menu */
+.burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin-inline: 20px;
+  background: transparent;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px auto;
+    background: var(--gray-900, #333);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+
+  &[aria-expanded="true"] span {
+    &:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+/* burger-menu */
+
 /* Global styles */
 
 /* body */
@@ -76,28 +116,31 @@ img {
       color: #224f34;
     }
 
-    nav {
-      min-width: 493px;
-      margin-inline: auto 13%;
+    .menu {
+      margin-inline: auto 8%;
+      display: flex;
 
-      ul {
-        display: flex;
-        justify-content: space-between;
+      nav {
+        ul {
+          display: flex;
+          width: 493px;
+          justify-content: space-between;
 
-        font-family: var(--font-family);
-        font-weight: 500;
-        font-size: 22px;
-        text-transform: uppercase;
-        color: #224f34;
+          font-family: var(--font-family);
+          font-weight: 500;
+          font-size: 22px;
+          text-transform: uppercase;
+          color: #224f34;
 
-        a:hover {
-          color: #66a37e;
+          a:hover {
+            color: #66a37e;
+          }
         }
       }
     }
 
     .shopping-bag {
-      margin-inline: 60px;
+      margin-inline: 4.3%;
       transition: .3s;
       position: relative;
 
@@ -137,6 +180,7 @@ img {
     flex-wrap: wrap;
 
     .content {
+      flex: 1 1 500px;
       max-width: 650px;
       margin-top: 1.5%;
 
@@ -172,8 +216,10 @@ img {
     }
 
     .media {
-      width: 570px;
-      height: 717px;
+      flex: 1 1 500px;
+      max-width: 570px;
+      width: 100%;
+      aspect-ratio: 570 / 717;
 
       .wrap {
         border-radius: 141px 45px 150px 82px;
@@ -200,6 +246,7 @@ img {
         .woman {
           position: absolute;
           right: 50%;
+          bottom: 0;
           transform: translateX(50%);
         }
       }

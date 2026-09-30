@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
 </head>
 
 <body>
@@ -27,22 +28,35 @@
         <a href="/" class="homepage">
           Rivo
         </a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Shop</a></li>
-            <li><a href="/">Features</a></li>
-            <li><a href="/">Contact</a></li>
-          </ul>
-        </nav>
+
+        <div class="menu">
+
+          <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false"
+            aria-controls="primary-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="burger-nav">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/">Shop</a></li>
+              <li><a href="/">Features</a></li>
+              <li><a href="/">Contact</a></li>
+            </ul>
+          </nav>
+
+        </div>
+
         <a class="shopping-bag" href="/">
-          <img src="images/icons/shopping-bag.svg" alt="shopping-bag">
+          <img class="icon" src="images/icons/shopping-bag.svg" alt="shopping-bag">
         </a>
         <a href="/" class="login btn">
           Login
         </a>
       </header>
-  
+
       <section class="hero">
 
         <div class="content">
@@ -64,7 +78,7 @@
         </div>
 
       </section>
-  
+
     </div>
   </div>
 
