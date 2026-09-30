@@ -138,6 +138,37 @@ img {
 
     .content {
       max-width: 650px;
+      margin-top: 1.5%;
+
+      h1 {
+        font-family: var(--font6);
+        font-weight: 700;
+        font-size: 86px;
+        color: #224f34;
+      }
+
+      p {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 220%;
+        color: #267d49;
+
+        margin: 27px 84px 54px 0;
+      }
+
+      a {
+        display: inline-block;
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #fff;
+        border-radius: 3px;
+        box-shadow: 6px 33px 59px 0 rgba(0, 0, 0, 0.3);
+        background: #224f34;
+        padding: 22px 60px;
+      }
     }
 
     .media {
