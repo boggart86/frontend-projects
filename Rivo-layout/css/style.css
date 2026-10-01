@@ -223,7 +223,7 @@ section.our-products {
 
     .active {
       color: #224f34;
-      border-bottom:  2px solid #224f34;
+      border-bottom: 2px solid #224f34;
     }
   }
 
@@ -256,6 +256,100 @@ section.our-products {
 
       .info {
         margin-top: 36px;
+      }
+    }
+  }
+}
+
+section.exclusive-offer {
+  padding-block: 97px 109px;
+  position: relative;
+  z-index: -999;
+
+  .container {
+    z-index: -999;
+    position: relative;
+  }
+
+  .wrap {
+    background: #c2efd4;
+    border-radius: 3px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    z-index: -2;
+
+    .decor {
+      position: absolute;
+      left: 41px;
+      bottom: 41px;
+      z-index: -1;
+    }
+
+    .media {
+      margin-left: 81px;
+      align-self: flex-end;
+    }
+
+    .content {
+      margin-right: 121px;
+      margin-block: 10px;
+      color: #224f34;
+      font-family: var(--font-family);
+      width: 590px;
+
+      h2 {
+        font-weight: 700;
+        font-size: 46px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 167%;
+      }
+
+      .timer {
+        display: flex;
+        gap: 35px;
+        margin-block: 40px;
+
+        .timer__item {
+          border-radius: 3px;
+          box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.05);
+          width: 100px;
+          height: 100px;
+          background-color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+
+          .timer__value {
+            font-weight: 600;
+            font-size: 32px;
+          }
+
+          .timer__label {
+            font-weight: 500;
+            font-size: 16px;
+          }
+        }
+      }
+
+      a.button {
+        display: inline-block;
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.05);
+        background: #224f34;
+        padding: 22px 70px;
       }
     }
   }

@@ -2,6 +2,7 @@
   .container {
     max-width: 100vw;
   }
+
   .first-screen {
     header {
       justify-content: space-around;
@@ -26,6 +27,18 @@
   section.best-selling {
     .products {
       justify-content: space-around;
+    }
+  }
+
+  section.exclusive-offer {
+    .wrap {
+      justify-content: space-around;
+      .media {
+        margin-left: 20px;
+      }
+      .content {
+        margin-right: 20px;
+      }
     }
   }
 }
