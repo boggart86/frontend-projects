@@ -1,98 +1,138 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // burger-menu
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.burger-nav');
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.burger-nav');
 
-    function toggleMenu(open) {
-        burger.setAttribute('aria-expanded', String(open));
-        nav.classList.toggle('is-open', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-    }
+  function toggleMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
 
-    burger.addEventListener('click', () => {
-        const isOpen = burger.getAttribute('aria-expanded') === 'true';
-        console.log(!isOpen)
-        toggleMenu(!isOpen);
-    });
+  burger.addEventListener('click', () => {
+    const isOpen = burger.getAttribute('aria-expanded') === 'true';
+    console.log(!isOpen)
+    toggleMenu(!isOpen);
+  });
 
-    // Клик по ссылке внутри меню — закрыть
-    nav.addEventListener('click', (e) => {
-        if (e.target.closest('a')) toggleMenu(false);
-    });
+  // Клик по ссылке внутри меню — закрыть
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) toggleMenu(false);
+  });
 
-    // Esc — закрыть
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') toggleMenu(false);
-    });
+  // Esc — закрыть
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') toggleMenu(false);
+  });
 
-    document.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
 
-        // клик внутри меню или по бургеру — игнорируем
-        if (e.target.closest('.burger-nav') || e.target.closest('.burger')) return;
+    // клик внутри меню или по бургеру — игнорируем
+    if (e.target.closest('.burger-nav') || e.target.closest('.burger')) return;
 
-        toggleMenu(false);
-    });
+    toggleMenu(false);
+  });
   // burger-menu
 
-  // ФИЛЬТР
-  const filterButtons = document.querySelectorAll('[data-filter]');
-  const cards = [...document.querySelectorAll('.fltr-results .card')];
+  // ===== ФИЛЬТР =====
+  //  КОНФИГ 
+  const SELECTORS = {
+    filterButton: '[data-filter]',
+    results: '.fltr-results',
+    card: '.card',
+  };
 
-  // Настройки анимации
-  const DURATION = 300;
+  const CLASSES = {
+    hidden: 'hidden',
+    active: 'active',
+  };
 
+  const ATTRS = {
+    filter: 'data-filter',
+    category: 'data-category',
+  };
+
+  const ANIMATION = {
+    duration: 300,
+    easing: 'ease',
+    hidden: { opacity: 0, transform: 'scale(0.5)' },
+    visible: { opacity: 1, transform: 'scale(1)' },
+  };
+
+  const VALUE = {
+    all: 'all',
+  };
+
+  const CATEGORY_SEPARATOR = ' ';
+
+  //  ЭЛЕМЕНТЫ 
+  const filterButtons = document.querySelectorAll(SELECTORS.filterButton);
+  const cards = [
+    ...document.querySelectorAll(`${SELECTORS.results} ${SELECTORS.card}`),
+  ];
+
+  //  ФИЛЬТР 
   async function filterCards(selectedCategory) {
     const toShow = [];
     const toHide = [];
 
     cards.forEach(card => {
-      const cardCategory = card.getAttribute('data-category');
-      const shouldShow = selectedCategory === 'all' || selectedCategory === cardCategory;
+      const raw = card.getAttribute(ATTRS.category) || '';
+      const cardCategories = raw
+        .split(CATEGORY_SEPARATOR)
+        .map(s => s.trim())
+        .filter(Boolean);
 
-      if (shouldShow && card.classList.contains('hidden')) toShow.push(card);
-      if (!shouldShow && !card.classList.contains('hidden')) toHide.push(card);
+      const shouldShow =
+        selectedCategory === VALUE.all ||
+        cardCategories.includes(selectedCategory);
+
+      if (shouldShow && card.classList.contains(CLASSES.hidden)) toShow.push(card);
+      if (!shouldShow && !card.classList.contains(CLASSES.hidden)) toHide.push(card);
     });
 
-    // 1. Сначала скрываем ненужные
+    // 1. Скрываем ненужные
     const hidePromises = toHide.map(card => {
-      card.classList.add('hidden');
+      card.classList.add(CLASSES.hidden);
       return card.animate(
-        [
-          { opacity: 1, transform: 'scale(1)' },
-          { opacity: 0, transform: 'scale(0.5)' }
-        ],
-        { duration: DURATION, easing: 'ease', fill: 'forwards' }
+        [ANIMATION.visible, ANIMATION.hidden],
+        {
+          duration: ANIMATION.duration,
+          easing: ANIMATION.easing,
+          fill: 'forwards',
+        }
       ).finished;
     });
 
     await Promise.all(hidePromises);
 
-    // После анимации — убираем из потока
-    toHide.forEach(card => card.style.display = 'none');
+    // Убираем из потока
+    toHide.forEach(card => (card.style.display = 'none'));
 
     // 2. Показываем новые
     toShow.forEach(card => {
-      card.classList.remove('hidden');
-      card.style.display = ''; // Возвращаем в поток
+      card.classList.remove(CLASSES.hidden);
+      card.style.display = '';
 
       card.animate(
-        [
-          { opacity: 0, transform: 'scale(0.5)' },
-          { opacity: 1, transform: 'scale(1)' }
-        ],
-        { duration: DURATION, easing: 'ease', fill: 'forwards' }
+        [ANIMATION.hidden, ANIMATION.visible],
+        {
+          duration: ANIMATION.duration,
+          easing: ANIMATION.easing,
+          fill: 'forwards',
+        }
       );
     });
   }
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      filterCards(button.getAttribute('data-filter'));
+      filterButtons.forEach(btn => btn.classList.remove(CLASSES.active));
+      button.classList.add(CLASSES.active);
+      filterCards(button.getAttribute(ATTRS.filter));
     });
   });
-  // ФИЛЬТР
+  // ===== ФИЛЬТР =====
 
 });

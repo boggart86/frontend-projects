@@ -172,59 +172,20 @@ section.best-selling {
       flex-direction: column;
       align-items: center;
 
-      img.product-img {
+      .product-img {
         border-radius: 3px;
       }
 
-      &:nth-child(3n + 1) img.product-img {
+      &:nth-child(3n + 1) .product-img {
         background: #93b9a2;
       }
 
-      &:nth-child(3n + 2) img.product-img {
+      &:nth-child(3n + 2) .product-img {
         background: #a9d4ba;
       }
 
-      &:nth-child(3n) img.product-img {
+      &:nth-child(3n) .product-img {
         background: #cadcd0;
-      }
-
-      .info {
-        width: 72.8%;
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 11px;
-
-        .name {
-          font-family: var(--font-family);
-          font-weight: 600;
-          font-size: 22px;
-          text-align: center;
-          color: #373737;
-        }
-
-        .line {
-          display: flex;
-          align-items: center;
-          gap: 40px;
-          font-family: var(--font-family);
-          font-weight: 500;
-          font-size: 22px;
-          color: #454545;
-
-          .sep {
-            border: 0.5px solid #454545;
-            height: 27px;
-            width: 0;
-          }
-
-          .rating {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-          }
-        }
       }
     }
   }
@@ -242,6 +203,60 @@ section.best-selling {
 
     img {
       margin-left: 18px;
+    }
+  }
+}
+
+section.our-products {
+  padding-block: 92px 97px;
+
+  .fltr-buttons {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #454545;
+    display: flex;
+    gap: 100px;
+    justify-self: center;
+    margin-block: 70px 80px;
+
+    .active {
+      color: #224f34;
+      border-bottom:  2px solid #224f34;
+    }
+  }
+
+  .fltr-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 82px;
+    column-gap: 20px;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+
+      .img-wrap {
+        width: 318px;
+        aspect-ratio: 318 / 378;
+        max-width: 100%;
+        position: relative;
+
+        .product-img {
+          background-color: white;
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
+
+      .info {
+        margin-top: 36px;
+      }
     }
   }
 }
