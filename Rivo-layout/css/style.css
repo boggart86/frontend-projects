@@ -494,6 +494,100 @@ footer {
   .content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+
+    .item_heading {
+      font-family: var(--second-family);
+      font-weight: 500;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      font-family: var(--font4);
+      font-weight: 400;
+      font-size: 50px;
+      color: #fff;
+    }
+
+    .item1 {
+      p {
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 22px;
+        text-transform: capitalize;
+        color: #fff;
+        margin-block: 44px 24px;
+      }
+
+      .links {
+        display: flex;
+        gap: 36px;
+      }
+    }
+
+    .item2,
+    .item3 {
+      ul {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: capitalize;
+        color: #c2efd4;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        li {
+          a {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .item4 {
+      form {
+        font-family: var(--font-family);
+        height: 57px;
+        border: 2px solid #a3f3be;
+        border-radius: 3px;
+
+        input {
+          padding-left: 24px;
+          height: 100%;
+          width: 372px;
+          font-weight: 400;
+          font-size: 20px;
+
+          &::placeholder {
+            opacity: 1;
+            color: #fff;
+          }
+
+          color: #fff;
+          background: none;
+        }
+
+        button {
+          height: 100%;
+          font-weight: 500;
+          font-size: 20px;
+          text-transform: uppercase;
+          color: #224f34;
+          padding-inline: 21px;
+          background: #a3f3be;
+          transition: .2s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
   }
 
   .bottom {
@@ -516,6 +610,12 @@ footer {
       font-size: 20px;
       text-transform: capitalize;
       color: #fff;
+
+      li {
+        a {
+          display: inline-block;
+        }
+      }
     }
   }
 }
