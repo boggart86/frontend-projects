@@ -487,4 +487,37 @@ section.feedback-corner {
   }
 }
 
+footer {
+  background: #224f34;
+  padding-block: 80px;
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .bottom {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    margin-top: 150px;
+
+    .line {
+      flex: 1;
+      border: 2px solid #a3f3be;
+      height: 0;
+    }
+
+    ul {
+      display: flex;
+      gap: 35px;
+      font-family: var(--font-family);
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: capitalize;
+      color: #fff;
+    }
+  }
+}
+
 /* body */
