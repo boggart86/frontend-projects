@@ -33,9 +33,11 @@
   section.exclusive-offer {
     .wrap {
       justify-content: space-around;
+
       .media {
         margin-left: 20px;
       }
+
       .content {
         margin-right: 20px;
       }
@@ -82,6 +84,31 @@
 
             ul {
               transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section.feedback-corner {
+    .swiper {
+      width: 90%;
+      .swiper-wrapper {
+        .swiper-slide {
+          &.swiper-slide-active {
+            background: #c2efd4;
+
+            .text {
+              color: #224f34;
+            }
+          }
+
+          &.swiper-slide-next {
+            background: inherit;
+
+            .text {
+              color: inherit;
             }
           }
         }

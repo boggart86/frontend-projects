@@ -148,10 +148,20 @@ document.addEventListener('DOMContentLoaded', () => {
       addIcons: false,
     },
 
-    slidesPerView: 3,
     slidesPerGroup: 1,
-    spaceBetween: 37,
 
+    breakpoints: {
+      // when window width is >= 320px
+      1000: {
+        slidesPerView: 3,
+        spaceBetween: 37
+      },
+
+      500: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+    }
   });
   // ===== Swiper =====
 
