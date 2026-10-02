@@ -41,6 +41,12 @@
       }
     }
   }
+
+  section.designer-clothes {
+    .items {
+      justify-content: space-around;
+    }
+  }
 }
 
 @media (max-width: 1000px) {

@@ -135,4 +135,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // ===== ФИЛЬТР =====
 
+  // ===== Swiper =====
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+      addIcons: false,
+    },
+
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: 37,
+
+  });
+  // ===== Swiper =====
+
 });
