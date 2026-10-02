@@ -3,20 +3,19 @@
   background-color: #C2EFD4;
   min-width: max-content;
   min-height: 100vh;
-  padding-block: 1px 166px;
-
+  padding-block: 1px clamp(80px, 6rem + 5vw, 166px);
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-block: 54px 130px;
+    margin-block: clamp(30px, 2rem + 2vw, 54px) clamp(60px, 4rem + 5vw, 130px);
     flex-wrap: wrap;
 
     .homepage {
       font-family: var(--font4);
       font-weight: 400;
-      font-size: 40px;
+      font-size: var(--fs-logo);
       color: #224f34;
     }
 
@@ -27,12 +26,12 @@
       nav {
         ul {
           display: flex;
-          width: 493px;
+          width: clamp(280px, 22vw + 200px, 493px);
           justify-content: space-between;
 
           font-family: var(--font-family);
           font-weight: 500;
-          font-size: 22px;
+          font-size: var(--fs-body);
           text-transform: uppercase;
           color: #224f34;
 
@@ -72,7 +71,7 @@
       justify-content: center;
       font-family: var(--font-family);
       font-weight: 500;
-      font-size: 20px;
+      font-size: var(--fs-small);
       text-transform: uppercase;
       color: #224f34;
     }
@@ -91,31 +90,31 @@
       h1 {
         font-family: var(--font6);
         font-weight: 700;
-        font-size: 86px;
+        font-size: var(--fs-h1);
         color: #224f34;
       }
 
       p {
         font-family: var(--font-family);
         font-weight: 500;
-        font-size: 24px;
-        line-height: 220%;
+        font-size: var(--fs-lead);
+        line-height: 1.8;
         color: #267d49;
 
-        margin: 27px 84px 54px 0;
+        margin: clamp(16px, 1rem + 1vw, 27px) clamp(0px, 6vw, 84px) clamp(24px, 2rem + 2vw, 54px) 0;
       }
 
       a {
         display: inline-block;
         font-family: var(--font-family);
         font-weight: 500;
-        font-size: 20px;
+        font-size: var(--fs-small);
         text-transform: uppercase;
         color: #fff;
         border-radius: 3px;
         box-shadow: 6px 33px 59px 0 rgba(0, 0, 0, 0.3);
         background: #224f34;
-        padding: 22px 60px;
+        padding: clamp(14px, 0.9rem + 1vw, 22px) clamp(30px, 2rem + 2.5vw, 60px);
       }
     }
 
@@ -158,10 +157,10 @@
 }
 
 section.best-selling {
-  padding-block: 114px 92px;
+  padding-block: clamp(60px, 4rem + 4vw, 114px) clamp(50px, 3rem + 3vw, 92px);
 
   .products {
-    margin-block: 80px;
+    margin-block: clamp(40px, 3rem + 3vw, 80px);
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -193,12 +192,12 @@ section.best-selling {
   a.btn {
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 22px;
+    font-size: var(--fs-body);
     color: #224f34;
     display: flex;
     width: fit-content;
     align-items: center;
-    padding: 16px 55px;
+    padding: clamp(12px, 0.8rem + 1vw, 16px) clamp(30px, 2rem + 2vw, 55px);
     margin-inline: auto;
 
     img {
@@ -208,18 +207,18 @@ section.best-selling {
 }
 
 section.our-products {
-  padding-block: 92px 97px;
+  padding-block: clamp(50px, 3rem + 3vw, 92px) clamp(50px, 3rem + 3vw, 97px);
 
   .fltr-buttons {
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 22px;
+    font-size: var(--fs-body);
     text-transform: uppercase;
     color: #454545;
     display: flex;
-    gap: 100px;
+    gap: clamp(30px, 1.5rem + 4vw, 100px);
     justify-self: center;
-    margin-block: 70px 80px;
+    margin-block: clamp(35px, 2rem + 3vw, 70px) clamp(40px, 2.5rem + 3vw, 80px);
 
     .active {
       color: #224f34;
@@ -230,7 +229,7 @@ section.our-products {
   .fltr-results {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 82px;
+    row-gap: clamp(40px, 2rem + 3.5vw, 82px);
     column-gap: 20px;
 
     .card {
@@ -255,14 +254,14 @@ section.our-products {
       }
 
       .info {
-        margin-top: 36px;
+        margin-top: clamp(20px, 1.5rem + 1.5vw, 36px);
       }
     }
   }
 }
 
 section.exclusive-offer {
-  padding-block: 97px 109px;
+  padding-block: clamp(50px, 3rem + 3vw, 97px) clamp(60px, 3.5rem + 3vw, 109px);
   position: relative;
   z-index: -999;
 
@@ -282,45 +281,46 @@ section.exclusive-offer {
 
     .decor {
       position: absolute;
-      left: 41px;
-      bottom: 41px;
+      left: clamp(15px, 1rem + 1.5vw, 41px);
+      bottom: clamp(15px, 1rem + 1.5vw, 41px);
       z-index: -1;
     }
 
     .media {
-      margin-left: 81px;
+      margin-left: clamp(15px, 1rem + 3vw, 81px);
       align-self: flex-end;
     }
 
     .content {
-      margin-right: 121px;
+      margin-right: clamp(15px, 1rem + 5vw, 121px);
       margin-block: 10px;
       color: #224f34;
       font-family: var(--font-family);
-      width: 590px;
+      width: clamp(280px, 40vw, 590px);
 
       h2 {
         font-weight: 700;
-        font-size: 46px;
-        margin-bottom: 20px;
+        font-size: var(--fs-h3);
+        margin-bottom: clamp(10px, 0.6rem + 1vw, 20px);
       }
 
       p {
         font-weight: 500;
-        font-size: 22px;
-        line-height: 167%;
+        font-size: var(--fs-body);
+        line-height: 1.67;
       }
 
       .timer {
         display: flex;
-        gap: 35px;
-        margin-block: 40px;
+        flex-wrap: wrap;
+        gap: clamp(0.625rem, 0.162rem + 2.31vw, 2.188rem);
+        margin-block: clamp(24px, 1.5rem + 2vw, 40px);
 
         .timer__item {
           border-radius: 3px;
           box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.05);
-          width: 100px;
-          height: 100px;
+          width: clamp(4rem, 3.333rem + 3.33vw, 6.25rem);
+          height: clamp(4rem, 3.333rem + 3.33vw, 6.25rem);
           background-color: white;
           display: flex;
           flex-direction: column;
@@ -330,12 +330,12 @@ section.exclusive-offer {
 
           .timer__value {
             font-weight: 600;
-            font-size: 32px;
+            font-size: var(--fs-timer);
           }
 
           .timer__label {
             font-weight: 500;
-            font-size: 16px;
+            font-size: var(--fs-xs);
           }
         }
       }
@@ -343,23 +343,23 @@ section.exclusive-offer {
       a.button {
         display: inline-block;
         font-weight: 500;
-        font-size: 20px;
+        font-size: var(--fs-small);
         text-transform: uppercase;
         color: #fff;
         border-radius: 3px;
         box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.05);
         background: #224f34;
-        padding: 22px 70px;
+        padding: clamp(14px, 0.9rem + 1.2vw, 22px) clamp(35px, 2rem + 3vw, 70px);
       }
     }
   }
 }
 
 section.designer-clothes {
-  padding-block: 109px 125px;
+  padding-block: clamp(50px, 3rem + 4vw, 109px) clamp(60px, 3.5rem + 4vw, 125px);
 
   .heading-subtitle {
-    margin-bottom: 72px;
+    margin-bottom: clamp(40px, 3rem + 3vw, 72px);
   }
 
   .items {
@@ -380,14 +380,14 @@ section.designer-clothes {
         .title {
           font-family: var(--font-family);
           font-weight: 600;
-          font-size: 30px;
+          font-size: var(--fs-h4);
         }
 
         p {
           font-family: var(--font-family);
           font-weight: 500;
-          font-size: 22px;
-          line-height: 143%;
+          font-size: var(--fs-body);
+          line-height: 1.43;
         }
       }
     }
@@ -395,7 +395,7 @@ section.designer-clothes {
 }
 
 section.feedback-corner {
-  padding-block: 125px 93px;
+  padding-block: clamp(60px, 3.5rem + 4vw, 125px) clamp(50px, 3rem + 3vw, 93px);
 
   .container {
     display: flex;
@@ -404,7 +404,7 @@ section.feedback-corner {
   }
 
   .section-heading {
-    margin-bottom: 109px;
+    margin-bottom: clamp(50px, 3rem + 5vw, 109px);
   }
 
   .swiper {
@@ -423,14 +423,14 @@ section.feedback-corner {
         .quotes {
           font-family: var(--font3);
           font-weight: 400;
-          font-size: 60px;
+          font-size: var(--fs-quote);
           color: #224f34;
         }
 
         .name {
           font-family: var(--third-family);
           font-weight: 600;
-          font-size: 22px;
+          font-size: var(--fs-body);
           color: #224f34;
           margin-bottom: 30px;
         }
@@ -438,7 +438,7 @@ section.feedback-corner {
         .text {
           font-family: var(--font-family);
           font-weight: 500;
-          font-size: 16px;
+          font-size: var(--fs-xs);
           color: #6f6f6f;
         }
 
@@ -455,8 +455,8 @@ section.feedback-corner {
 
   .swiper-nav {
     display: flex;
-    margin-top: 125px;
-    gap: 50px;
+    margin-top: clamp(60px, 3.5rem + 5vw, 125px);
+    gap: clamp(24px, 1.5rem + 2vw, 50px);
     outline: none;
 
     .swiper-button-prev,
@@ -489,7 +489,7 @@ section.feedback-corner {
 
 footer {
   background: #224f34;
-  padding-block: 80px;
+  padding-block: clamp(50px, 3rem + 3vw, 80px);
 
   .content {
     display: flex;
@@ -500,7 +500,7 @@ footer {
     .item_heading {
       font-family: var(--second-family);
       font-weight: 500;
-      font-size: 22px;
+      font-size: var(--fs-body);
       text-transform: uppercase;
       color: #fff;
       margin-bottom: 25px;
@@ -509,7 +509,7 @@ footer {
     .logo {
       font-family: var(--font4);
       font-weight: 400;
-      font-size: 50px;
+      font-size: var(--fs-h2);
       color: #fff;
     }
 
@@ -517,10 +517,10 @@ footer {
       p {
         font-family: var(--second-family);
         font-weight: 500;
-        font-size: 22px;
+        font-size: var(--fs-body);
         text-transform: capitalize;
         color: #fff;
-        margin-block: 44px 24px;
+        margin-block: clamp(24px, 2rem + 1.5vw, 44px) 24px;
       }
 
       .links {
@@ -534,7 +534,7 @@ footer {
       ul {
         font-family: var(--font-family);
         font-weight: 500;
-        font-size: 20px;
+        font-size: var(--fs-small);
         text-transform: capitalize;
         color: #c2efd4;
         display: flex;
@@ -552,16 +552,16 @@ footer {
     .item4 {
       form {
         font-family: var(--font-family);
-        height: 57px;
+        height: clamp(46px, 3rem + 1.5vw, 57px);
         border: 2px solid #a3f3be;
         border-radius: 3px;
 
         input {
           padding-left: 24px;
           height: 100%;
-          width: 372px;
+          width: clamp(180px, 20vw, 372px);
           font-weight: 400;
-          font-size: 20px;
+          font-size: var(--fs-small);
 
           &::placeholder {
             opacity: 1;
@@ -575,7 +575,7 @@ footer {
         button {
           height: 100%;
           font-weight: 500;
-          font-size: 20px;
+          font-size: var(--fs-small);
           text-transform: uppercase;
           color: #224f34;
           padding-inline: 21px;
@@ -592,9 +592,9 @@ footer {
 
   .bottom {
     display: flex;
-    gap: 35px;
+    gap: clamp(20px, 1.5rem + 2vw, 35px);
     align-items: center;
-    margin-top: 150px;
+    margin-top: clamp(60px, 4rem + 6vw, 150px);
 
     .line {
       flex: 1;
@@ -604,10 +604,10 @@ footer {
 
     ul {
       display: flex;
-      gap: 35px;
+      gap: clamp(20px, 1.5rem + 2vw, 35px);
       font-family: var(--font-family);
       font-weight: 600;
-      font-size: 20px;
+      font-size: var(--fs-small);
       text-transform: capitalize;
       color: #fff;
 
@@ -619,5 +619,4 @@ footer {
     }
   }
 }
-
 /* body */
