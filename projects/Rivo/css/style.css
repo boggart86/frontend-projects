@@ -220,23 +220,25 @@ section.our-products {
     justify-self: center;
     margin-block: clamp(35px, 2rem + 3vw, 70px) clamp(40px, 2.5rem + 3vw, 80px);
 
-    .active {
+    .mixitup-control-active {
       color: #224f34;
       border-bottom: 2px solid #224f34;
     }
   }
 
   .fltr-results {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: clamp(40px, 2rem + 3.5vw, 82px);
-    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: clamp(1rem, -0.19rem + 5.93vw, 5rem);
 
     .card {
       display: flex;
       flex-direction: column;
       align-items: center;
       overflow: hidden;
+      width: 318px;
+      max-width: 47%;
 
       .img-wrap {
         width: 318px;

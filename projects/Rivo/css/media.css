@@ -38,6 +38,12 @@
       justify-content: space-around;
     }
   }
+
+  section.our-products {
+    .fltr-results {
+      justify-content: space-around;
+    }
+  }
 }
 
 @media (max-width: 1000px) {
@@ -79,12 +85,6 @@
     }
   }
 
-  section.our-products {
-    .fltr-results {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
   section.feedback-corner {
     .swiper {
       width: 90%;
@@ -122,14 +122,6 @@
       .content {
         width: 80%;
       }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  section.our-products {
-    .fltr-results {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
