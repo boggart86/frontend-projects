@@ -1,2 +1,2 @@
 # Layout gallery
-https://boggart86.github.io/frontend-projects/
+[Layout gallery](https://boggart86.github.io/frontend-projects/){:target="_blank"}
