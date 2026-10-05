@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Lumina Spa · adaptive wellness</title>
+  <!-- Font & icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7f3ee;
+      /* soft warm base */
+      color: #2e2b28;
+      line-height: 1.5;
+      overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* smooth dark mode (optional – subtle) */
+    body.dark {
+      background: #1b1a18;
+      color: #e8e4df;
+    }
+
+    body.dark .card,
+    body.dark .service-item,
+    body.dark nav,
+    body.dark footer {
+      background: #262421;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    body.dark .btn-outline {
+      border-color: #b7a89a;
+      color: #d9d2c8;
+    }
+
+    /* ---------- TYPOGRAPHY & UTILS ---------- */
+    h1,
+    h2,
+    h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 2.9rem);
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+
+    h2 i {
+      color: #b7a28b;
+      margin-right: 8px;
+    }
+
+    p {
+      font-weight: 300;
+      opacity: 0.85;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      display: inline-block;
+      padding: 14px 38px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+      background: #b7a28b;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(183, 162, 139, 0.3);
+    }
+
+    .btn:hover {
+      background: #9e8974;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 24px rgba(183, 162, 139, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #b7a28b;
+      color: #b7a28b;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #b7a28b;
+      color: #fff;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(247, 243, 238, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 999;
+      padding: 16px 0;
+      transition: background 0.3s, box-shadow 0.3s;
+      border-bottom: 1px solid rgba(183, 162, 139, 0.15);
+    }
+
+    body.dark nav {
+      background: rgba(27, 26, 24, 0.9);
+      border-bottom-color: rgba(183, 162, 139, 0.1);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: #2e2b28;
+      text-decoration: none;
+    }
+
+    body.dark .logo {
+      color: #e8e4df;
+    }
+
+    .logo span {
+      color: #b7a28b;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3d3a36;
+      font-weight: 400;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    body.dark .nav-links a {
+      color: #ccc6be;
+    }
+
+    .nav-links a:hover {
+      color: #b7a28b;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #3d3a36;
+      padding: 6px 10px;
+      border-radius: 30px;
+      transition: background 0.2s;
+    }
+
+    body.dark .theme-toggle {
+      color: #e8e4df;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(183, 162, 139, 0.15);
+    }
+
+    /* mobile menu button (hidden on desktop) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #2e2b28;
+      cursor: pointer;
+    }
+
+    body.dark .menu-toggle {
+      color: #e8e4df;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 100px 0 60px;
+      background: radial-gradient(circle at 80% 30%, rgba(183, 162, 139, 0.12) 0%, transparent 50%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 i {
+      color: #b7a28b;
+      font-weight: 300;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 480px;
+      margin-bottom: 32px;
+      opacity: 0.75;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #b7a28b;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.55;
+    }
+
+    /* floating orb / visual */
+    .hero-visual {
+      position: relative;
+      height: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .orb {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e9d9cb, #cfbcab, #b7a28b);
+      box-shadow: 0 30px 50px rgba(183, 162, 139, 0.4), inset 0 0 60px rgba(255, 255, 255, 0.5);
+      animation: float 7s infinite ease-in-out;
+      position: relative;
+    }
+
+    .orb::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      top: -10px;
+      left: -10px;
+      animation: pulse 4s infinite alternate;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) scale(1);
+      }
+
+      50% {
+        transform: translateY(-18px) scale(1.02);
+      }
+
+      100% {
+        transform: translateY(0px) scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.4;
+        transform: scale(0.98);
+      }
+
+      100% {
+        opacity: 0.9;
+        transform: scale(1.06);
+      }
+    }
+
+    /* ---------- CARDS & SERVICES ---------- */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header p {
+      max-width: 550px;
+      margin: 16px auto 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-block: 50px 170px;
+    }
+
+    .service-item {
+      background: #fff;
+      border-radius: 28px;
+      padding: 38px 28px;
+      box-shadow: 0 18px 36px -12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      text-align: center;
+      border: 1px solid rgba(183, 162, 139, 0.1);
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 40px -12px rgba(183, 162, 139, 0.3);
+    }
+
+    .service-icon {
+      font-size: 2.6rem;
+      color: #b7a28b;
+      margin-bottom: 22px;
+      transition: transform 0.4s;
+    }
+
+    .service-item:hover .service-icon {
+      transform: scale(1.1) rotate(3deg);
+    }
+
+    .service-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .service-item p {
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      opacity: 0.7;
+    }
+
+    .service-price {
+      font-weight: 500;
+      color: #b7a28b;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ---------- SPECIAL / INTERACTIVE CARD ---------- */
+    .special-card {
+      background: linear-gradient(145deg, #f3ede8, #e9dfd6);
+      border-radius: 42px;
+      padding: 50px 40px;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s;
+      border: 1px solid rgba(183, 162, 139, 0.2);
+      box-shadow: 0 18px 30px -12px rgba(183, 162, 139, 0.2);
+    }
+
+    body.dark .special-card {
+      background: linear-gradient(145deg, #2c2a27, #242220);
+    }
+
+    .special-text h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .special-text p {
+      max-width: 500px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #fff;
+      padding: 50px 0 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(183, 162, 139, 0.15);
+      transition: background 0.3s;
+    }
+
+    body.dark footer {
+      background: #201e1b;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-weight: 500;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .footer-col a {
+      display: block;
+      text-decoration: none;
+      color: #5b554e;
+      font-weight: 300;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    body.dark .footer-col a {
+      color: #b1aaa2;
+    }
+
+    .footer-col a:hover {
+      color: #b7a28b;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+      font-size: 1.3rem;
+    }
+
+    .social-icons a {
+      color: #b7a28b;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-3px);
+      color: #9e8974;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.5;
+      padding-top: 30px;
+      border-top: 1px solid rgba(183, 162, 139, 0.1);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        height: 280px;
+      }
+
+      .orb {
+        width: 220px;
+        height: 220px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        right: 20px;
+        flex-direction: column;
+        background: rgba(247, 243, 238, 0.98);
+        backdrop-filter: blur(16px);
+        padding: 30px 20px;
+        border-radius: 32px;
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.08);
+        gap: 1.8rem;
+        align-items: stretch;
+        text-align: center;
+        border: 1px solid rgba(183, 162, 139, 0.2);
+      }
+
+      body.dark .nav-links {
+        background: rgba(27, 26, 24, 0.98);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .special-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+        padding: 40px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .stat-item {
+        align-items: center;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        padding: 12px 28px;
+      }
+    }
+
+    /* ---------- SCROLL REVEAL (JS) ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">lumina<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#rituals">Rituals</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="btn btn-outline" style="padding: 10px 24px;">Book now</a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Dark mode toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <h1>where stillness <i>meets</i> glow</h1>
+        <p>Adaptive wellness for modern souls. Reconnect with your natural rhythm in our urban sanctuary.</p>
+        <a href="#services" class="btn" style="margin-right: 14px;">Explore therapies</a>
+        <a href="#" class="btn btn-outline">Virtual tour</a>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">years of care</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">guest return</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">7</span>
+            <span class="stat-label">signature rituals</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="orb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2><i class="fas fa-leaf"></i> adaptive services</h2>
+        <p>Each treatment adapts to your body’s needs — because true wellness is never one-size-fits-all.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item reveal">
+          <div class="service-icon"><i class="fas fa-spa"></i></div>
+          <h3>Signature massage</h3>
+          <p>Deep tissue, aromatherapy, or hot stone — tailored to your tension map.</p>
+          <div class="service-price">from $120</div>
+        </div>
+        <div class="service-item reveal">
+          <div class="service-icon"><i class="fas fa-water"></i></div>
+          <h3>Hydrotherapy</h3>
+          <p>Mineral pools, cold plunge, and infrared sauna for full reset.</p>
+          <div class="service-price">from $85</div>
+        </div>
+        <div class="service-item reveal">
+          <div class="service-icon"><i class="fas fa-face-smile"></i></div>
+          <h3>Glow facial</h3>
+          <p>Adaptive LED and botanical serums for your skin’s current mood.</p>
+          <div class="service-price">from $95</div>
+        </div>
+        <div class="service-item reveal">
+          <div class="service-icon"><i class="fas fa-moon"></i></div>
+          <h3>Sleep ritual</h3>
+          <p>Sound bath, guided breathwork, and warm oil head massage.</p>
+          <div class="service-price">from $140</div>
+        </div>
+      </div>
+
+      <!-- interactive special card / ritual -->
+      <div id="rituals" class="special-card reveal">
+        <div class="special-text">
+          <h3>Adaptive ritual of the month</h3>
+          <p><i class="fas fa-star" style="color: #b7a28b; margin-right: 6px;"></i> Forest immersion & sound healing —
+            every weekend. Limited spots.</p>
+        </div>
+        <a href="#" class="btn" style="white-space: nowrap;">Reserve spot <i class="fas fa-arrow-right"
+            style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>lumina.</h4>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Adaptive spa & wellness<br>Amsterdam · Lisbon · Online</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#">Treatments</a>
+          <a href="#">Membership</a>
+          <a href="#">Gift cards</a>
+          <a href="#">Journal</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Contact</a>
+          <a href="#">FAQ</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <div class="footer-col">
+          <h4>Follow</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 Lumina Spa · adaptive wellness for all
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    (function () {
+      // ---------- DARK MODE TOGGLE ----------
+      const themeToggle = document.getElementById('themeToggle');
+      const body = document.body;
+
+      // check localStorage
+      if (localStorage.getItem('lumina-theme') === 'dark') {
+        body.classList.add('dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('lumina-theme', isDark ? 'dark' : 'light');
+        themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      });
+
+      // ---------- MOBILE MENU TOGGLE ----------
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        // change icon
+        const icon = menuToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      // close mobile menu on link click
+      navLinks.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link) {
+          navLinks.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      // close menu if click outside (mobile)
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+          if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        }
+      });
+
+      // ---------- SCROLL REVEAL (Intersection Observer) ----------
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // optional: unobserve after reveal
+            // observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -20px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+
+      // manually trigger visible on those already in viewport (for fast load)
+      window.addEventListener('load', () => {
+        revealElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 80) {
+            el.classList.add('visible');
+          }
+        });
+      });
+
+      // ---------- SMOOTH SCROLL FOR ANCHOR LINKS (optional) ----------
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === "#" || href === "") return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // ---------- ADAPTIVE TOUCH: orb follows cursor subtly (only on non-touch) ----------
+      if (window.matchMedia('(pointer: fine)').matches) {
+        const orb = document.querySelector('.orb');
+        if (orb) {
+          document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 12;
+            const y = (e.clientY / window.innerHeight - 0.5) * 12;
+            orb.style.transform = `translate(${x}px, ${y}px) scale(1.02)`;
+          });
+          document.addEventListener('mouseleave', () => {
+            orb.style.transform = 'translate(0px, 0px) scale(1)';
+          });
+        }
+      }
+
+      // preserve orb float animation without conflict (reset transform on animation)
+      // we override with important? no, we'll use a wrapper approach but it's fine.
+      // For simplicity, the orb animation uses transform, but mouse move overrides.
+      // We'll make mouse move only when user moves, and reset after idle? 
+      // better: store base and apply via style, but animation still fights. 
+      // let's adjust: remove animation while moving? simpler: keep it subtle.
+      // To avoid jitter, I'll rework: remove animation on mousemove for 2 seconds.
+      let moveTimer;
+      const orbEl = document.querySelector('.orb');
+      if (orbEl && window.matchMedia('(pointer: fine)').matches) {
+        document.addEventListener('mousemove', (e) => {
+          orbEl.style.animation = 'none';
+          const x = (e.clientX / window.innerWidth - 0.5) * 12;
+          const y = (e.clientY / window.innerHeight - 0.5) * 12;
+          orbEl.style.transform = `translate(${x}px, ${y}px) scale(1.02)`;
+          clearTimeout(moveTimer);
+          moveTimer = setTimeout(() => {
+            orbEl.style.animation = 'float 7s infinite ease-in-out';
+            orbEl.style.transform = '';
+          }, 2000);
+        });
+      }
+
+      // ---------- SMALL ADAPTIVE TWEAK: update year in copyright? already static.
+      // Also handle window resize for mobile menu reset.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+          navLinks.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+    })();
+  </script>
+</body>
+
+</html>
